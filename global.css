@@ -1,0 +1,146 @@
+/*
+  Cores do Centavo sobre o Bootstrap.
+  O Bootstrap 5.3 lê as cores de variáveis CSS (--bs-*). Aqui trocamos o azul padrão
+  pelo verde-água do Centavo, no tema claro e no escuro, sem escrever um CSS de layout próprio.
+*/
+:root,
+[data-bs-theme='light'] {
+  --bs-primary: #0f7b6c;
+  --bs-primary-rgb: 15, 123, 108;
+  --bs-link-color: #0b6a5c;
+  --bs-link-color-rgb: 11, 106, 92;
+  --bs-link-hover-color: #084f45;
+  --bs-link-hover-color-rgb: 8, 79, 69;
+  --bs-body-bg: #f4f1e8;
+  --bs-body-bg-rgb: 244, 241, 232;
+  --centavo-sobre-primaria: #ffffff;
+  --centavo-ouro: #f2b134;
+}
+
+[data-bs-theme='dark'] {
+  --bs-primary: #3fc0ac;
+  --bs-primary-rgb: 63, 192, 172;
+  --bs-link-color: #6fd6c5;
+  --bs-link-color-rgb: 111, 214, 197;
+  --bs-link-hover-color: #9be4d7;
+  --bs-link-hover-color-rgb: 155, 228, 215;
+  --bs-body-bg: #0e1f1d;
+  --bs-body-bg-rgb: 14, 31, 29;
+  --centavo-sobre-primaria: #04201c;
+}
+
+/*
+  Verde e vermelho de TEXTO com contraste suficiente (mínimo 4,5:1) nos dois temas.
+  O Bootstrap usa #198754 e #dc3545, que ficam fracos em letra pequena.
+*/
+.text-success {
+  color: #146c43 !important;
+}
+.text-danger {
+  color: #b02a37 !important;
+}
+[data-bs-theme='dark'] .text-success {
+  color: #4cd694 !important;
+}
+[data-bs-theme='dark'] .text-danger {
+  color: #ff8a94 !important;
+}
+
+.btn-primary {
+  --bs-btn-color: var(--centavo-sobre-primaria);
+  --bs-btn-bg: var(--bs-primary);
+  --bs-btn-border-color: var(--bs-primary);
+  --bs-btn-hover-color: var(--centavo-sobre-primaria);
+  --bs-btn-hover-bg: var(--bs-link-hover-color);
+  --bs-btn-hover-border-color: var(--bs-link-hover-color);
+  --bs-btn-active-color: var(--centavo-sobre-primaria);
+  --bs-btn-active-bg: var(--bs-link-hover-color);
+  --bs-btn-active-border-color: var(--bs-link-hover-color);
+  --bs-btn-disabled-color: var(--centavo-sobre-primaria);
+  --bs-btn-disabled-bg: var(--bs-primary);
+  --bs-btn-disabled-border-color: var(--bs-primary);
+}
+
+.btn-outline-primary {
+  --bs-btn-color: var(--bs-link-color);
+  --bs-btn-border-color: var(--bs-primary);
+  --bs-btn-hover-color: var(--centavo-sobre-primaria);
+  --bs-btn-hover-bg: var(--bs-primary);
+  --bs-btn-hover-border-color: var(--bs-primary);
+  --bs-btn-active-color: var(--centavo-sobre-primaria);
+  --bs-btn-active-bg: var(--bs-primary);
+  --bs-btn-active-border-color: var(--bs-primary);
+  --bs-btn-disabled-color: var(--bs-link-color);
+  --bs-btn-disabled-border-color: var(--bs-primary);
+}
+
+.progress {
+  --bs-progress-bar-bg: var(--bs-primary);
+}
+
+.form-control:focus,
+.form-select:focus {
+  border-color: var(--bs-primary);
+  box-shadow: 0 0 0 0.25rem rgba(var(--bs-primary-rgb), 0.25);
+}
+
+.form-check-input:checked {
+  background-color: var(--bs-primary);
+  border-color: var(--bs-primary);
+}
+
+.nav-link.active {
+  font-weight: 600;
+}
+
+/* Cabeçalho com gradiente (o resto do layout vem das classes do Bootstrap) */
+.centavo-navbar {
+  background: linear-gradient(90deg, #0c3533, #0f7b6c);
+}
+
+.centavo-logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background: var(--centavo-ouro);
+  color: #5a3a06;
+  font-weight: 700;
+}
+
+/* Tamanho fixo do círculo com o símbolo da moeda */
+.simbolo-moeda {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  background: rgba(var(--bs-primary-rgb), 0.15);
+  color: var(--bs-link-color);
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+
+/* Deixa textos longos encolherem dentro de flexbox em vez de estourar a tela */
+.min-w-0 {
+  min-width: 0;
+}
+
+/* Números alinhados em colunas */
+.numero {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Cartão inteiro clicável (RouterLink por cima do card) */
+.card-link-cheio {
+  text-decoration: none;
+  color: inherit;
+}
+
+.card-link-cheio:hover .card {
+  border-color: var(--bs-primary);
+}
